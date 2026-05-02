@@ -1,0 +1,40 @@
+[project]
+name = "mcp-changelog"
+version = "0.1.0"
+description = "MCP server that diffs package versions and surfaces breaking changes — for AI coding agents that need to know what'll break before they upgrade."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Anthony Snider" }]
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=1.2.0",
+    "httpx>=0.27.0",
+]
+keywords = ["mcp", "model-context-protocol", "changelog", "upgrade", "npm", "pypi", "claude", "agent"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.urls]
+Homepage = "https://github.com/lordbasilaiassistant-sudo/mcp-changelog"
+Issues = "https://github.com/lordbasilaiassistant-sudo/mcp-changelog/issues"
+Funding = "https://github.com/sponsors/lordbasilaiassistant-sudo"
+
+[project.scripts]
+mcp-changelog = "mcp_changelog.server:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "pytest-asyncio>=0.21"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mcp_changelog"]
